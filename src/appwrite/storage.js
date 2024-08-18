@@ -12,5 +12,16 @@ export class StorageService {
     this.bucket = new Storage(this.client);
   }
 
-  
+  async uploadFile(file) {
+    try {
+      return await this.bucket.createFile(
+        config.appwriteBucketId,
+        ID.unique(),
+        file
+      );
+    } catch (error) {
+      console.log("Appwrite StorageService :: uploadFile() :: ", error);
+      return false;
+    }
+  }
 }
