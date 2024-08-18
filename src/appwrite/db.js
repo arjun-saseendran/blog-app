@@ -26,4 +26,19 @@ export class DBService {
       return false;
     }
   }
+
+  async getPosts(queries = [Query.equal('status', 'active')]){
+    try {
+
+        return await this.databases.listDocuments(config.appwriteDatabaseId, config.appwriteCollectionId,
+            queries
+        )
+        
+    } catch (error) {
+        console.log("Appwrite DBService :: getPosts() :: ", error);
+      return false;
+        
+    }
+  }
+
 }
