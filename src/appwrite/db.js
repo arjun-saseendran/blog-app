@@ -52,4 +52,18 @@ export class DBService {
       return false;
     }
   }
+
+  async updatePost({ title, slug, content, featuredImage, status }) {
+    try {
+      return await this.databases.updateDocument(
+        config.appwriteDatabaseId,
+        config.appwriteCollectionId,
+        slug,
+        { title, content, featuredImage, status }
+      );
+    } catch (error) {
+      console.log("Appwrite DBService :: updatePost() :: ", error);
+      return false;
+    }
+  }
 }
