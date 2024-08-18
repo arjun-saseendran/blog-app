@@ -93,3 +93,6 @@ export class DBService {
     }
   }
 }
+
+const dbService = new DBService();
+export default dbService;

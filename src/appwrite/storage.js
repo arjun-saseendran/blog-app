@@ -27,15 +27,17 @@ export class StorageService {
 
   async deleteFile(fileId) {
     try {
-      await this.bucket.deleteFile(
-        config.appwriteBucketId,
-
-        fileId
-      );
+      await this.bucket.deleteFile(config.appwriteBucketId, fileId);
       return true;
     } catch (error) {
       console.log("Appwrite StorageService :: deleteFile() :: ", error);
       return false;
     }
   }
+  getFilePreview(fileId) {
+    return this.bucket.getFilePreview(config.appwriteBucketId, fileId).href;
+  }
 }
+
+const storageService = new StorageService();
+export default storageService;
