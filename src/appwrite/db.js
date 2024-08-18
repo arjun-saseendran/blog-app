@@ -27,18 +27,29 @@ export class DBService {
     }
   }
 
-  async getPosts(queries = [Query.equal('status', 'active')]){
+  async getPosts(queries = [Query.equal("status", "active")]) {
     try {
-
-        return await this.databases.listDocuments(config.appwriteDatabaseId, config.appwriteCollectionId,
-            queries
-        )
-        
+      return await this.databases.listDocuments(
+        config.appwriteDatabaseId,
+        config.appwriteCollectionId,
+        queries
+      );
     } catch (error) {
-        console.log("Appwrite DBService :: getPosts() :: ", error);
+      console.log("Appwrite DBService :: getPosts() :: ", error);
       return false;
-        
     }
   }
-
+  async createPost({ title, slug, content, featuredImage, status, userId }) {
+    try {
+      return await this.databases.createDocument(
+        config.appwriteDatabaseId,
+        config.appwriteCollectionId,
+        slug,
+        { title, content, featuredImage, status, userId }
+      );
+    } catch (error) {
+      console.log("Appwrite DBService :: createPost() :: ", error);
+      return false;
+    }
+  }
 }
