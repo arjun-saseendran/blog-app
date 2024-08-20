@@ -1,6 +1,6 @@
 import React from "react";
-import { Container } from "../container/Container.jsx";
-import { Logo } from "../Logo.jsx";
+import  Container  from "../container/Container.jsx";
+import  Logo  from "../Logo.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import LogoutButton from "./LogoutButton.jsx";
 import { useSelector } from "react-redux";
@@ -13,7 +13,7 @@ function Header() {
     { name: "Login", slug: "/login", active: !authStatus },
     { name: "Signup", slug: "/signup", active: !authStatus },
     { name: "All Posts", slug: "/all-posts", active: authStatus },
-    { name: "Add Posts", slug: "/add-posts", active: authStatus },
+    { name: "Add Posts", slug: "/add-post", active: authStatus },
   ];
 
   return (

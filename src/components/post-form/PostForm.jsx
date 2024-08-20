@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../Button";
-import Input from "..Input";
+import Input from "../Input";
 import RealTimeEditor from "../RealTimeEditor";
 import Select from "../Select";
 import { useSelector } from "react-redux";
